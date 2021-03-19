@@ -210,7 +210,7 @@ public void metaDataDecodeTest() throws Exception {
 ```
 如果交易 data 字段符合元交易的格式，并且能够正常解析，那么就进入 mempool。 否者，拒绝改交易，不能进入mempool。
 
-unc metaTransactionCheck(tx *types.Transaction,  b Backend,) error {
+func metaTransactionCheck(tx *types.Transaction,  b Backend,) error {
 	if types.IsMetaTransaction(tx.Data()) {
 		metaData, err := types.DecodeMetaData(tx.Data(), b.CurrentBlock().Number())
 		if err != nil {
